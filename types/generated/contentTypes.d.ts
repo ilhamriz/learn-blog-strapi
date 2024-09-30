@@ -375,25 +375,11 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   attributes: {
     Title: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    Category: Attribute.Enumeration<
-      ['Product Reviews', 'Opinions', 'Travel Guide']
-    > &
-      Attribute.Required;
-    Summary: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
-    isFeatured: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    Thumbnail: Attribute.Media<'images'> & Attribute.Required;
-    FeaturedImage: Attribute.Media<'images'> & Attribute.Required;
     Content: Attribute.RichText & Attribute.Required;
+    Cover: Attribute.Media<'images'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
